@@ -1,5 +1,5 @@
 class DropLogoColumn < ActiveRecord::Migration[7.0]
   def change
-    remove_column :track, :logo
+    remove_column :tracks, :logo
   end
 end

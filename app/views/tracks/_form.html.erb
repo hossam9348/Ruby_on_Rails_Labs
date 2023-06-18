@@ -1,0 +1,33 @@
+<%= form_with(model: track) do |form| %>
+  <%
+=begin%>
+ <% if track.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(track.errors.count, "error") %> prohibited this track from being saved:</h2>
+
+      <ul>
+        <% track.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %> 
+<%
+=end%>
+
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+    <p style="color: red"> <%= track.errors[:name][0]%></p>
+  </div>
+
+  <div>
+    <%= form.label :description, style: "display: block" %>
+    <%= form.text_field :description %>
+    <p style="color: red"> <%= track.errors[:description][0]%></p>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
